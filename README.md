@@ -7,11 +7,25 @@
 - [Project Brief](https://drive.google.com/open?id=1-92K9HQPE5HhxVSYHcNwUxniUWW5Kp6v)
 
 ## Project Idea
-- You will play as an off-duty military pilot, when disaster strikes. As an unexpected alien invasion ensues, you must first, drive across the city to the military base, avoiding the destruction around you.
-- Once at the military base, you will board your ship, take to the skies and defend the city from a fleet alien ships.
-- All is not over that easily, once the ships are destroyed, you will be tasked with taking on the MOTHERSHIP!
+- Level 1: You will play as an off-duty military pilot, when disaster strikes. As an unexpected alien invasion ensues, you must first, drive across the city to the military base, avoiding the destruction around you.
+- Level 2: Once at the military base, you will board your ship, take to the skies and defend the city from a fleet alien ships. Avoid their attacks and hit them with your own to take them down. The longer you take, the more damage the city takes. Defeat all enemy ships before the city is completely destroyed.
+- Once you have destroyed all enemy ships and saved the city, you will be tasked with taking on the MOTHERSHIP! Avoid its attacks and hit its critical points to deal damage.
+
+## Mechanics
+- Driving - Standard 360 degree movement without elevation
+- Flying - Driving Mechanics with added elevation movements
+- Shooting - Projectile collision system
+- Damage System - Deal and take damage
+- Health System - Health indications & recovery items
+
+## Design
+- Futuristic city buildings
+- Realistic / Gritty style ships
+- Metallic/Chrome style buildings
+- Luminous projectile fire
 
 ## Inspirations
-- Space Invaders
+- Space Invaders (Concept)
 - Astroid
-- Halo (vehicle control)
+- Halo (vehicle control, aesthetic)
+- Star wars (vehicle/projectile style)
