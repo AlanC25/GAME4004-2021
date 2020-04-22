@@ -9,7 +9,7 @@
 ## Project Idea
 - Level 1: You will play as an off-duty military pilot, when disaster strikes. As an unexpected alien invasion ensues, you must first, drive across the city to the military base, avoiding the destruction around you.
 - Level 2: Once at the military base, you will board your ship, take to the skies and defend the city from a fleet alien ships. Avoid their attacks and hit them with your own to take them down. The longer you take, the more damage the city takes. Defeat all enemy ships before the city is completely destroyed.
-- Once you have destroyed all enemy ships and saved the city, you will be tasked with taking on the MOTHERSHIP! Avoid its attacks and hit its critical points to deal damage.
+- Level 3: Once you have destroyed all enemy ships and saved the city, you will be tasked with taking on the MOTHERSHIP! Avoid its attacks and hit its critical points to deal damage.
 
 ## Mechanics
 - Driving - Standard 360 degree movement without elevation
