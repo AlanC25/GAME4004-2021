@@ -4,22 +4,22 @@ using UnityEngine;
 
 namespace GRIDCITY
 {
-    public enum blockType { Block, Arches, Columns, Dishpivot, DomeWithBase, HalfDome, SlitDome, Slope, Tile};
+    public enum blockType { Block, Arches, Columns, Dishpivot, DomeWithBase, HalfDome, SlitDome, Slope, Tile };
 
-	public class CityManager : MonoBehaviour
+    public class CityManager : MonoBehaviour
     {
 
         #region Fields
-        private static CityManager _instance;
         public Mesh[] meshArray;
         public Material[] materialArray;
+        private static CityManager _instance;
         public GameObject buildingPrefab;
-        public GameObject treePrefab;
-        public BuildingProfile[] profileArray;
+        public GameObject WallBlock;
+        public GameObject WallTopper;
 
         public BuildingProfile wallProfile;
 
-        private bool[,,] cityArray = new bool [15,15,15];   //increased array size to allow for larger city volume
+        private bool[,,] cityArray = new bool[30, 15, 30];   //increased array size to allow for larger city volume
 
         public static CityManager Instance
         {
@@ -37,7 +37,8 @@ namespace GRIDCITY
         #region Unity Methods
 
         // Use this for internal initialization
-        void Awake () {
+        void Awake()
+        {
             if (_instance == null)
             {
                 _instance = this;
@@ -49,71 +50,67 @@ namespace GRIDCITY
                 Debug.LogError("Multiple CityManager instances in Scene. Destroying clone!");
             };
         }
-		
-		// Use this for external initialization
-		void Start ()
+
+        // Use this for external initialization
+        void Start()
         {
-            //UPDATING PLANNING ARRAY TO ACCOUNT FOR MANUALLY PLACED|CITY GATE
-            for (int ix=-1; ix <2; ix++)
+            // Select x and z size
+            int OuterWallLength = 30;
+
+            //start at bottom
+            for (int height = 0; height < 3; height++)
             {
-                int iz = -7;
-                for (int iy=0;iy<3;iy++)
+                //start on x's (-) edge, loop til (+) edge
+                for (int x = -OuterWallLength; x <= OuterWallLength; x++)
                 {
-                    SetSlot(ix + 7, iy, iz + 7, true);
+                    //start on z's (-) edge, loop til (+) edge
+                    for (int z = -OuterWallLength; z <= OuterWallLength; z += 1)
+                    {
+                        //only if edge position selected, keeps wall hollow
+                        if (Mathf.Abs(x) == OuterWallLength || Mathf.Abs(z) == OuterWallLength)
+                        {
+                            if (height < 2)
+                            {
+                                Instantiate(WallBlock);
+                                WallBlock.transform.position = new Vector3(x, height, z);
+                            }
+                            else if (height == 2)
+                            {
+                                Instantiate(WallTopper);
+                                WallTopper.transform.position = new Vector3(x, height, z);
+                            }
+                        }
+                    }
                 }
             }
+            int InnerWallLength = 20;
 
-            //BUILD CITY WALLS - add your code below
-            
-            for (int i=-7 ; i < 8 ; i += 14)
-            {
-                for (int j = -7; j < 8; j += 1)
+            //Build inner wall
+            for (int height = 0; height < 5; height++)
+                //start on x's (-) edge, loop til (+) edge
+                for (int x = -InnerWallLength; x <= InnerWallLength; x++)
                 {
-                    Instantiate(buildingPrefab, new Vector3(i, 0.05f, j), Quaternion.identity).GetComponent<DeluxeTowerBlock>().SetProfile(wallProfile);
+                    //start on z's (-) edge, loop til (+) edge
+                    for (int z = -InnerWallLength; z <= InnerWallLength; z += 1)
+                    {
+                        //only if edge position selected, keeps wall hollow
+                        if (Mathf.Abs(x) == InnerWallLength || Mathf.Abs(z) == InnerWallLength)
+                        {
+                            if (height < 4)
+                            {
+                                Instantiate(WallBlock);
+                                WallBlock.transform.position = new Vector3(x, height, z);
+                            }
+                            else if (height == 4)
+                            {
+                                Instantiate(WallTopper);
+                                WallTopper.transform.position = new Vector3(x, height, z);
+                            }
+                        }
+                    }
                 }
-                for (int j = -6; j < 7; j += 1)
-                {
-                    Instantiate(buildingPrefab, new Vector3(j, 0.05f, i), Quaternion.identity).GetComponent<DeluxeTowerBlock>().SetProfile(wallProfile);
-                }
-            }
-            
-
-            //CITY BUILDINGS:
-            
-			for (int i=-4;i<5;i+=2)
-            {
-                for (int j=-4;j<5;j+=2)
-                {
-                    int random = Random.Range(0, profileArray.Length);
-                    Instantiate(buildingPrefab, new Vector3(i, 0.05f, j), Quaternion.identity).GetComponent<DeluxeTowerBlock>().SetProfile(profileArray[random]);                 
-                }
-            }
-            
-            
-		}
-		
-		#endregion
-
-        public bool CheckSlot(int x, int y, int z)
-        {
-            if (x < 0 || x > 14 || y < 0 || y > 14 || z < 0 || z > 14) return true;
-            else
-            {
-                return cityArray[x, y, z];
-            }
-
+            #endregion
+            #endregion
         }
-
-        public void SetSlot(int x, int y, int z, bool occupied)
-        {
-            if (!(x < 0 || x > 14 || y < 0 || y > 14 || z < 0 || z > 14))
-            {
-                cityArray[x, y, z] = occupied;
-            }
-
-        }
-
-        #endregion
-
     }
 }

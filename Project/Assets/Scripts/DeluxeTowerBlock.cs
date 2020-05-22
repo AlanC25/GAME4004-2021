@@ -36,7 +36,7 @@ namespace GRIDCITY
             myMesh = mesh;
             myMaterial = mat;
             maxLevel = myProfile.maxHeight;
-            
+
         }
 
         #region Unity Methods
@@ -55,23 +55,14 @@ namespace GRIDCITY
             int x = Mathf.RoundToInt(transform.position.x + 7.0f);
             int y = Mathf.RoundToInt(transform.position.y);
             int z = Mathf.RoundToInt(transform.position.z + 7.0f);
-            cityManager = CityManager.Instance;
 
             Transform child;
             if (recursionLevel == 0)
             {
-                if (!cityManager.CheckSlot(x, y, z))
-                {
-                    int meshNum = myProfile.groundBlocks.Length;
-                    int matNum = myProfile.groundMaterials.Length;
-                    myMesh = myProfile.groundBlocks[Random.Range(0, meshNum)];
-                    myMaterial = myProfile.groundMaterials[Random.Range(0, matNum)];
-                    cityManager.SetSlot(x, y, z, true);
-                }
-                else
-                {
-                    Destroy(gameObject);
-                }
+                int meshNum = myProfile.groundBlocks.Length;
+                int matNum = myProfile.groundMaterials.Length;
+                myMesh = myProfile.groundBlocks[Random.Range(0, meshNum)];
+                myMaterial = myProfile.groundMaterials[Random.Range(0, matNum)];
             }
 
             myMeshFilter.mesh = myMesh;
@@ -81,43 +72,22 @@ namespace GRIDCITY
             {
                 if (recursionLevel == maxLevel - 1)
                 {
-                    if (!cityManager.CheckSlot(x, y + 1, z))
-                    {
-                        child = Instantiate(basePrefab, transform.position + Vector3.up*1.05f, Quaternion.identity, this.transform);
-                        int meshNum = myProfile.roofBlocks.Length;
-                        int matNum = myProfile.roofMaterials.Length;
-                        child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.roofMaterials[Random.Range(0, matNum)], myProfile.roofBlocks[Random.Range(0, meshNum)]);
-
-                        cityManager.SetSlot(x, y + 1, z, true);
-                    }
-                }
-                else
-                {
-                    if (!cityManager.CheckSlot(x, y + 1, z))
-                    {
-                        child = Instantiate(basePrefab, transform.position + Vector3.up * 1.05f, Quaternion.identity, this.transform);
-                        int meshNum = myProfile.mainBlocks.Length;
-                        int matNum = myProfile.mainMaterials.Length;
-                        child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);
-
-                        cityManager.SetSlot(x, y + 1, z, true);
-                    }
+                    child = Instantiate(basePrefab, transform.position + Vector3.up * 1.05f, Quaternion.identity, this.transform);
+                    int meshNum = myProfile.roofBlocks.Length;
+                    int matNum = myProfile.roofMaterials.Length;
+                    child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.roofMaterials[Random.Range(0, matNum)], myProfile.roofBlocks[Random.Range(0, meshNum)]);
                 }
             }
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            if (transform.position.y < -5f)
+            else
             {
-                Destroy(gameObject);
+
+                child = Instantiate(basePrefab, transform.position + Vector3.up * 1.05f, Quaternion.identity, this.transform);
+                int meshNum = myProfile.mainBlocks.Length;
+                int matNum = myProfile.mainMaterials.Length;
+                child.GetComponent<DeluxeTowerBlock>().Initialize(recursionLevel + 1, myProfile.mainMaterials[Random.Range(0, matNum)], myProfile.mainBlocks[Random.Range(0, meshNum)]);
             }
         }
-
         #endregion
         #endregion
-
     }
 }
-
