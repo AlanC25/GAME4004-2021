@@ -12,7 +12,7 @@ namespace GRIDCITY
         public int maxLevel = 0;
         public blockType myType = blockType.Arches;
         public int myMaterial = 0;
-        private CityManager cityManager;
+        private BuildWalls cityManager;
         private Renderer myRenderer;
         private MeshFilter myMeshFilter;
         #endregion
@@ -41,7 +41,7 @@ namespace GRIDCITY
 		// Use this for external initialization
 		void Start ()
         {
-            cityManager = CityManager.Instance;
+            cityManager = BuildWalls.Instance;
 
             myMeshFilter.mesh = cityManager.meshArray[(int)myType];
             myRenderer.material = cityManager.materialArray[myMaterial];

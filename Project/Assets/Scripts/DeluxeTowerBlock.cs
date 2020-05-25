@@ -12,7 +12,7 @@ namespace GRIDCITY
         public Transform basePrefab;
         public int recursionLevel = 0;
         private int maxLevel = 3;
-        private CityManager cityManager;
+        private BuildWalls cityManager;
         private Renderer myRenderer;
         private MeshFilter myMeshFilter;
         private Mesh myMesh;
