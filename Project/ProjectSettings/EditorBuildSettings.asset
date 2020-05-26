@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 0b2f0a2e3ab7e524a93463ad10cc7d00
+  - enabled: 1
+    path: Assets/Scenes/BossLevel.unity
+    guid: 47160fee92d83b04280bbd00722e9221
+  - enabled: 1
+    path: Assets/Scenes/CutScene.unity
+    guid: cc12f5a88e53e74439af367aa823739a
+  - enabled: 1
+    path: Assets/Scenes/DriveLevel.unity
+    guid: 94958cd4080ce4a4ea74a284c5301fd3
   m_configObjects: {}
