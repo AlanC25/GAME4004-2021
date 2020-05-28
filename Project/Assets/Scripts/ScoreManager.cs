@@ -6,14 +6,20 @@ using System.Collections;
 public class ScoreManager : MonoBehaviour
 {
     public string Success;
+    public static int score;
 
-    void Start()
+    Text text;
+    void Awake()
     {
-        StartCoroutine(StartTimer());
+        text = GetComponent<Text>();
+        score = 0;
     }
-    IEnumerator StartTimer()
+
+    void Update()
     {
-            yield return new WaitForSeconds(150);
+        if (score >= 5)
+        {
             SceneManager.LoadScene(Success);
+        }
     }
 }

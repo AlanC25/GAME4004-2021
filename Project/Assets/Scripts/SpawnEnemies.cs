@@ -25,7 +25,7 @@ public class SpawnEnemies : MonoBehaviour
 
             Instantiate(enemy, new Vector3(xPos, yPos, zPos), Quaternion.identity);
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(4);
             enemyCount += 1;
         }
     }
