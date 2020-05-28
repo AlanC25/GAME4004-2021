@@ -858,7 +858,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Destroy the Enemy patrollers!\nR to rise, F to lower \nArrow keys to fly"
+  m_Text: "Destroy the Enemy patrollers!\nR to rise, F to lower \nArrow keys to fly\nLeft
+    Click to Shoot!"
 --- !u!222 &1093964626
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1532,6 +1533,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372529316726898360, guid: bd1e0f1d7b0432748b79ecc89419e6e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8372529316726898361, guid: bd1e0f1d7b0432748b79ecc89419e6e2,
         type: 3}

@@ -1,24 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
     public string Success;
-    public static int score;
 
-    Text text;
-    void Awake()
+    void Start()
     {
-        text = GetComponent<Text>();
-        score = 0;
+        StartCoroutine(StartTimer());
     }
-    void Update()
+    IEnumerator StartTimer()
     {
-        if (score >= 20)
-        {
+            yield return new WaitForSeconds(60);
             SceneManager.LoadScene(Success);
-        }
     }
 }

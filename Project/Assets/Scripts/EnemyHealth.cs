@@ -6,7 +6,6 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         Die();
-        ScoreManager.score += 1;
     }
 
     //destroy when hit
