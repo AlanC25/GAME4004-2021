@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     }
     IEnumerator StartTimer()
     {
-            yield return new WaitForSeconds(60);
+            yield return new WaitForSeconds(150);
             SceneManager.LoadScene(Success);
     }
 }
