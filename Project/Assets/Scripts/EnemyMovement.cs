@@ -13,6 +13,9 @@ public class EnemyMovement : MonoBehaviour
     float movementSpeed = 10;
     private float rotationSpeed = 3;
 
+    public GameObject Player;
+    public float DetectionDistance = 4;
+
     void Start()
     {
         lastWaypointIndex = waypoints.Count - 1;

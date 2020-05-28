@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        if (score >= 10)
+        if (score >= 20)
         {
             SceneManager.LoadScene(Success);
         }

@@ -7,6 +7,7 @@ public class Text : MonoBehaviour
     //Add reference to UI Text here via the inspector
     public Text textToAppear;
     internal string text;
+    internal Color color;
     private float timeToAppear = 2f;
     private float timeWhenDisappear;
 
