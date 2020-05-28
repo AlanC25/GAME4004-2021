@@ -5,8 +5,8 @@ using UnityEngine;
 public class Text : MonoBehaviour
 {
     //Add reference to UI Text here via the inspector
-    public Text textToAppear;  
-
+    public Text textToAppear;
+    internal string text;
     private float timeToAppear = 2f;
     private float timeWhenDisappear;
 
