@@ -17,8 +17,7 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        text.text = "Enemies left: " + (20 - score);
-        if (score >= 5)
+        if (score >= 10)
         {
             SceneManager.LoadScene(Success);
         }

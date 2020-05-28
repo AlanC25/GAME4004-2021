@@ -13,9 +13,7 @@ public class FireGun : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         bulletAudio = GetComponent<AudioSource>();
-
     }
 
     void Fire()
@@ -36,7 +34,7 @@ public class FireGun : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown("space"))
         {
             Fire();
         }

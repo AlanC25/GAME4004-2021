@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  score: 5
 --- !u!4 &388976328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5445660667015618651, guid: 066ad731eff669949954609d7e333134,
@@ -791,8 +792,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Destroy the Enemy patrollers!\nR to rise, F to lower \nArrow keys to fly\nLeft
-    Click to Shoot!"
+  m_Text: "Destroy the Enemy patrollers!\nArrow keys to fly\nR to rise, F to lower
+    \nSpace to Shoot!"
 --- !u!222 &1093964626
 CanvasRenderer:
   m_ObjectHideFlags: 0
